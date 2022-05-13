@@ -170,11 +170,10 @@ absl::Status FeatureDetectorCalculator::Process(CalculatorContext* cc) {
          i++) {
       *tensor_buffer++ = 0;
     }
-
     patches->emplace_back(tensor);
+    free(tensor.data.data);// 释放内存
     cc->Outputs().Tag("PATCHES").Add(patches.release(), timestamp);
   }
-
   return absl::OkStatus();
 }
 
