@@ -172,6 +172,7 @@ absl::Status FeatureDetectorCalculator::Process(CalculatorContext* cc) {
     }
 
     patches->emplace_back(tensor);
+    free(tensor.data.data); // yjw 释放内存
     cc->Outputs().Tag("PATCHES").Add(patches.release(), timestamp);
   }
 
