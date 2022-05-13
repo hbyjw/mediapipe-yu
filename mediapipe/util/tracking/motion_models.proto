@@ -24,7 +24,8 @@
 syntax = "proto2";
 
 package mediapipe;
-
+option java_package = "com.google.mediapipe.tracking";
+option java_outer_classname = "MotionModelsProto";
 // Here x represents a 2D point in the image plane, in the following
 // coordinate system:
 // *----> x

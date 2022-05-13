@@ -121,6 +121,11 @@ EOF
                    "com/google/mediapipe/formats/proto/LandmarkProto.java",
                    "com/google/mediapipe/formats/proto/LocationDataProto.java",
                    "com/google/mediapipe/proto/CalculatorProto.java",
+
+                    "com/google/mediapipe/tracking/BoxTrackerProto.java",  
+                    "com/google/mediapipe/tracking/TrackingProto.java",
+                    "com/google/mediapipe/tracking/MotionModelsProto.java"
+
                ] +
                select({
                    "//conditions:default": [],
@@ -181,9 +186,12 @@ EOF
 def _mediapipe_proto(name):
     """Generates MediaPipe java proto libraries.
 
+ 
+
     Args:
       name: the name of the target.
     """
+
     _proto_java_src_generator(
         name = "mediapipe_log_extension_proto",
         proto_src = "mediapipe/util/analytics/mediapipe_log_extension.proto",
@@ -247,6 +255,28 @@ def _mediapipe_proto(name):
             "//mediapipe/framework/formats:protos_src",
         ],
     )
+    _proto_java_src_generator(
+        name = "motion_models_proto",
+        proto_src = "mediapipe/util/tracking/motion_models.proto",
+        java_lite_out = "com/google/mediapipe/tracking/MotionModelsProto.java",
+        srcs = ["//mediapipe/util/tracking:protos_src"],
+    )
+
+    _proto_java_src_generator(
+       name = "tracking_proto",
+        proto_src = "mediapipe/util/tracking/tracking.proto",
+        java_lite_out = "com/google/mediapipe/tracking/TrackingProto.java",
+        srcs = ["//mediapipe/util/tracking:protos_src"],
+    )
+    _proto_java_src_generator(
+        name = "box_tracker_proto",
+        proto_src = "mediapipe/util/tracking/box_tracker.proto",
+        java_lite_out = "com/google/mediapipe/tracking/BoxTrackerProto.java",
+        srcs = ["//mediapipe/util/tracking:protos_src"],
+    )
+   
+ 
+
 
 def _proto_java_src_generator(name, proto_src, java_lite_out, srcs = []):
     native.genrule(

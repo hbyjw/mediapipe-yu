@@ -15,7 +15,8 @@
 syntax = "proto2";
 
 package mediapipe;
-
+option java_package = "com.google.mediapipe.tracking";
+option java_outer_classname = "TrackingProto";
 import "mediapipe/util/tracking/motion_models.proto";
 
 // Next tag: 38

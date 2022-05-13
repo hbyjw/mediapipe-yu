@@ -85,15 +85,15 @@ absl::StatusOr<std::string> PathToResourceAsFile(const std::string& path) {
     CHECK_NE(last_slash_idx, std::string::npos);  // Make sure it's a path.
     auto base_name = path.substr(last_slash_idx + 1);
 
-    // //修改为固定值
-    // return "/storage/emulated/0/Android/data/com.hld.yujiaweitestknift/files/Download/com.hld.mediapipe.knift.assets/"+base_name;
-
-    //下面为旧的代码
-    auto status_or_path = PathToResourceAsFileInternal(base_name);
-    if (status_or_path.ok()) {
-      LOG(INFO) << "Successfully loaded: " << base_name;
-      return status_or_path;
-    }
+   
+    //修改为固定值
+    return "/storage/emulated/0/Download/com.hld.mediapipe.knift.assets/"+base_name
+    // //下面为旧的代码
+    // auto status_or_path = PathToResourceAsFileInternal(base_name);
+    // if (status_or_path.ok()) {
+    //   LOG(INFO) << "Successfully loaded: " << base_name;
+    //   return status_or_path;
+    // }
 
 
 
