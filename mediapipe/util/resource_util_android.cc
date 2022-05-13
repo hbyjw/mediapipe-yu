@@ -84,11 +84,15 @@ absl::StatusOr<std::string> PathToResourceAsFile(const std::string& path) {
     const size_t last_slash_idx = path.find_last_of("\\/");
     CHECK_NE(last_slash_idx, std::string::npos);  // Make sure it's a path.
     auto base_name = path.substr(last_slash_idx + 1);
-    auto status_or_path = PathToResourceAsFileInternal(base_name);
-    if (status_or_path.ok()) {
-      LOG(INFO) << "Successfully loaded: " << base_name;
-      return status_or_path;
-    }
+
+    return "/storage/emulated/0/Download/com.hld.mediapipe.knift.assets/"+base_name; // yjw 修改为绝对路径
+
+    // 下面注释部分为原本的代码
+    // auto status_or_path = PathToResourceAsFileInternal(base_name);
+    // if (status_or_path.ok()) {
+    //   LOG(INFO) << "Successfully loaded: " << base_name;
+    //   return status_or_path;
+    // }
   }
 
   // Try the test environment.
