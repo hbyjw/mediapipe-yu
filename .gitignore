@@ -4,3 +4,9 @@ mediapipe/MediaPipe.tulsiproj/*.tulsiconf-user
 mediapipe/provisioning_profile.mobileprovision
 .configure.bazelrc
 .user.bazelrc
+mediapipe/examples/android/solutions/.gradle/6.8.3/executionHistory/executionHistory.lock
+mediapipe/examples/android/solutions/.gradle/6.8.3/fileChanges/last-build.bin
+mediapipe/examples/android/solutions/.gradle/6.8.3/fileHashes/fileHashes.lock
+mediapipe/examples/android/solutions/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+mediapipe/examples/android/solutions/.gradle/checksums/checksums.lock
+
