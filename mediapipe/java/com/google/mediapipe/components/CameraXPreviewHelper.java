@@ -109,7 +109,7 @@ public class CameraXPreviewHelper extends CameraHelper {
   private ImageCapture imageCapture;
   private ImageCapture.Builder imageCaptureBuilder;
   private ExecutorService imageCaptureExecutorService;
-  private Camera camera;
+  public Camera camera;
   private int[] textures = null;
 
   // Size of the camera-preview frames from the camera.
